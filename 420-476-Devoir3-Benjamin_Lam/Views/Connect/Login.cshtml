@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Connect", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Login")</td>
+            <td><input type="text" name="login" id="login" required /></td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td><input type="password" name="password" id="password" required /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+            @if (ViewBag.LoginValidation == "fail")
+            {
+                <td>Provided login and/or password invalid</td>
+            }
+        </tr>
+    </table>
+}
